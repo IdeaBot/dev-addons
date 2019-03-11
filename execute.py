@@ -9,8 +9,13 @@ from libs import command
 from libs import discordstats
 import re
 import sys
+import json  # in case command output would be better nicely formatted
 
 evalDictOriginalNameThisIs = {}
+
+# special exception to ignore
+class FailException(Exception):
+    pass
 
 class Command(command.DirectOnlyCommand, command.AdminCommand, command.BenchmarkableCommand):
     '''ExecuteCommand tries to execute a passed in piece of code and responds
@@ -33,14 +38,15 @@ You probably don't have permissions to run this command '''
             args_match = self.collect_args(message)
             # TODO(14flash): Avoid magic number.
             code = args_match.group(3)
+            bot = client  # alias since both are common terms
             try:
                 result = eval(code)
                 if result is None:
                     result = 'Execution completed successfully'
                 yield from send_func(message.channel, result)
-            except KeyboardInterrupt:
+            except (KeyboardInterrupt, FailException):
                 raise
-            except:
+            except Exception as e:  # catch all -- you never know how this will fail
                 exception = sys.exc_info()
                 yield from send_func(message.channel, 'I\'m sure it\'s a feature that your code crashes, right? ' + self.exception_message(exception))
 
@@ -77,3 +83,11 @@ def retrieve(a):
     retrieves a in evalDictOriginalNameThisIs
     Precondition: a must be in evalDictOriginalNameThisIs'''
     return evalDictOriginalNameThisIs[a]
+
+def fail(reason='Exception created through fail()'):
+    # raises exception ignored by except clause (useful for testing error_pm)
+    raise FailException(reason)
+
+def interrupt(reason='Raised through execute command'):
+    # raises KeyboardInterrupt, this should shutdown the bot
+    raise KeyboardInterrupt(reason)
