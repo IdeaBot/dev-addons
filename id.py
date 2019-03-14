@@ -1,6 +1,6 @@
 from libs import reaction #as reactioncommand
 
-class Reaction(reaction.ReactionAddCommand):
+class Reaction(reaction.ReactionAddCommand, reaction.ErrorlessReaction):
     '''Gets the ID of an emoji
 
 **Usage**

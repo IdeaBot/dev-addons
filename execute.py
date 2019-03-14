@@ -89,5 +89,5 @@ def fail(reason='Exception created through fail()'):
     raise FailException(reason)
 
 def interrupt(reason='Raised through execute command'):
-    # raises KeyboardInterrupt, this should shutdown the bot
+    # raises KeyboardInterrupt, this should (safely) shutdown the bot
     raise KeyboardInterrupt(reason)

@@ -5,7 +5,7 @@ class Command(command.DirectOnlyCommand):
 
 **Usage**
 To get roles info in the current server
-```roles id```
+```@Idea roles id```
 
 **NOTE:** This is a debug command, so it may be removed or deprecated without notice in the future '''
     def matches(self, message):
