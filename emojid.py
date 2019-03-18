@@ -6,7 +6,8 @@ class Reaction(reaction.ReactionAddCommand, reaction.ErrorlessReaction):
 **Usage**
 React to a message containing the word "id" with the emoji you want the ID of
 
-**NOTE:** This is a debug command, so it may be removed or deprecated without notice in the future'''
+**NOTE:** This is a debug command
+**NOTE2:** This command will be removed with the next point release (v1.0)'''
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.emoji=None
@@ -19,4 +20,3 @@ React to a message containing the word "id" with the emoji you want the ID of
             yield from self.send_message(reaction.message.channel, "Name: `" + reaction.emoji.name + "`\nID: `" + reaction.emoji.id + "`")
         except AttributeError:
             yield from self.send_message(reaction.message.channel, reaction.emoji + " doesn't have an ID")
-            print(reaction.emoji)

@@ -5,7 +5,8 @@ import re
 FILEPATH="msgdumptemp.csv"
 
 class Command(command.DirectOnlyCommand, command.AdminCommand):
-    '''A command for generating and uploading CSV files of sent messages
+    '''Generates and uploads CSV files of sent messages.
+This command is currently disabled. A proper replacement will be completed soon (hopefully).
 
 **Usage**
 ```@Idea statistics``` '''

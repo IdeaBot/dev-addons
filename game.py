@@ -28,6 +28,7 @@ Where
         self.public_namespace.game_file.content['name'] = name
         self.public_namespace.game_file.content['type'] = type
         yield from self.send_message(message.channel, 'Success! Game is now `%s`' % str(game))
+        self.public_namespace.game_file.save()
 
     def collect_args(self, message):
         return re.search(r'\bset\s*game(?:\s*to)?\s+(?:(\d)\s+)(.+)', message.content, re.I)

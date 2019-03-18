@@ -9,29 +9,29 @@ Some of these functions have restricted access
 This outlines the functionality of each command.
 Use `@Idea help <command name>` to get usage instructions.
 
+* !game_p
+> Restore Discord game status on startup.
+
 * execute
 > Run arbitrary Python code.
-
-* game_p
-> Restore Discord game status on startup.
 
 * game
 > Set Discord game status.
 
-* id
+* emojid
 > Get the ID of an emoji.
 
-* idc
+* userid
 > Get your user ID.
+
+* roleid
+> Get the IDs of roles in your server.
 
 * retry
 > Re-run a command by reacting to the message.
 
-* roles
-> Get the IDs of roles in your server.
-
 * shutdown
 > Shutdown Idea.
 
-* statistics
+* stats
 > Get bot statistics.

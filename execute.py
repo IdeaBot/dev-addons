@@ -24,7 +24,7 @@ with the result of the execution.
 **Usage**
 ```@Idea execute `<code>` ```
 
-You probably don't have permissions to run this command '''
+You probably don't have permissions to run this command (bot admins only)'''
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.perms = None

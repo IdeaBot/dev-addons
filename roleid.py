@@ -7,7 +7,8 @@ class Command(command.DirectOnlyCommand):
 To get roles info in the current server
 ```@Idea roles id```
 
-**NOTE:** This is a debug command, so it may be removed or deprecated without notice in the future '''
+**NOTE:** This is a debug command
+**NOTE2:** This command will be removed with the next point release (v1.0) '''
     def matches(self, message):
         return "roles id" in message.content.lower() and message.server != None
 
